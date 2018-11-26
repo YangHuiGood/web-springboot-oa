@@ -2538,6 +2538,7 @@ fieldset[disabled] .am-form-field {
 /* form group */
 .am-form-group {
   margin-bottom: 1.5rem;
+  width: 100px;
 }
 /**
  * Checkboxes and radios
@@ -2712,7 +2713,7 @@ fieldset[disabled] .am-checkbox-inline {
     width: auto;
   }
   .am-form-inline .am-input-group > .am-form-field {
-    width: 100%;
+    width: 50%;
   }
   .am-form-inline .am-form-label {
     margin-bottom: 0;
