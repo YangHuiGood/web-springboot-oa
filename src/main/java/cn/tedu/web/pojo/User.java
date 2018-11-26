@@ -1,6 +1,7 @@
 package cn.tedu.web.pojo;
 
 public class User {
+<<<<<<< HEAD
 	private String userId;
 	private String userName;
 	private String userPassword;
@@ -8,6 +9,15 @@ public class User {
 	private String userEmail;
 	private String userPhone;
 	private Integer roleId;
+=======
+	private String userId;//用户id
+	private String userName;//用户名称
+	private String userPassword;//用户密码
+	private String imgToken;//人脸地址
+	private String userEmail;//用户邮箱
+	private String userPhone;//用户电话
+	private Integer roleId;//角色id
+>>>>>>> c54168282384aef4909a3ce2a492a8dab1936f64
 	public String getUserId() {
 		return userId;
 	}
