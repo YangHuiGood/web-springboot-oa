@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -10,16 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="${app}/assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="${app}/assets/i/app-icon72x72@2x.png">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="${app}/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="${app}/assets/css/admin.css">
 </head>
 <body>
 <div class="am-cf admin-main">
   <!-- sidebar start -->
   <div class="admin-sidebar">
+  	
     <ul class="am-list admin-sidebar-list">
       <li><a target="right" href="admin-index.jsp"><span class="am-icon-home"></span> 签到</a></li>
       <!-- 任务管理 -->
