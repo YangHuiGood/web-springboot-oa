@@ -5,7 +5,11 @@ import java.sql.Date;
 
 public class Task implements Serializable{
 	/*
+<<<<<<< HEAD
 	 *   `task_id` varchar(20) NOT NULL AUTO_INCREMENT COMMENT '任务id',
+=======
+	 *   `task_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务id',
+>>>>>>> taskFinish2.0
   `task_post_id` bigint(20) NOT NULL COMMENT '任务发布者id',
   `task_get_id` bigint(20) NOT NULL COMMENT '任务接收者id',
   `task_content` text NOT NULL COMMENT '任务内容',
