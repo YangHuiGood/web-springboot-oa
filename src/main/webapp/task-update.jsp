@@ -12,18 +12,17 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="icon" type="image/png"
-	href="${pageContext.request.contextPath}/assets/i/favicon.png">
+<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/i/favicon.png">
 <link rel="apple-touch-icon-precomposed"
 	href="${pageContext.request.contextPath}/assets/i/app-icon72x72@2x.png">
 <meta name="apple-mobile-web-app-title" content="Amaze UI" />
 <link rel="stylesheet" href="/assets/css/amazeui.min.css" />
 <link rel="stylesheet" href="/assets/css/admin.css">
-<script type="text/javascript" src="/assets/js/My97Date/WdatePicker.js"></script>
 </head>
 <body>
 	<!-- content start -->
-	<form action="/task/sendTask" method="post">
+	<form action="/task/sendTask"
+		method="post">
 		<div class="admin-content">
 
 			<div class="am-cf am-padding">
@@ -31,18 +30,18 @@
 					<strong class="am-text-primary am-text-lg">任务管理</strong> / <small>任务发布</small>
 				</div>
 			</div>
-
+	
 			<div class="am-tabs am-margin" data-am-tabs>
 				<ul class="am-tabs-nav am-nav am-nav-tabs">
-
+				
 					<li class="am-active"><a href="#tab1">基本信息</a></li>
-
+					
 				</ul>
-
+				
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-fade am-in am-active" id="tab1">
 						<div class="am-g am-margin-top">
-							<div style="color: red; text-align: center">${msg}</div>
+							<div style="color:red;text-align:center">${msg}</div>
 							<div class="am-u-sm-2 am-text-right">发布人</div>
 							<div class="am-u-sm-10">
 								<div>boss</div>
@@ -51,29 +50,32 @@
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">接收人</div>
 							<div class="am-u-sm-10">
-								<select name="taskGetId" id="show">
-									<c:forEach items="${userList }" var="user">
-										<option value="${user.userId }">姓名:${user.userName} |
-											ID:${user.userId }</option>
-									</c:forEach>
+								<select name="taskGetId">
+									<option value="option1">选项一...</option>
+									<option value="option2">选项二.....</option>
+									<option value="option3">选项三........</option>
 								</select>
 							</div>
 						</div>
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">截止时间</div>
 							<div class="am-u-sm-10">
+								<form action="" class="am-form am-form-inline">
 									<div class="am-form-group am-form-icon">
-										<!-- <i class="am-icon-calendar"> </i>--> <input type="text" class="Wdate" 
-										onclick="WdatePicker({dateFmt:'yyyy-MM-dd '})" 
-										placeholder="点击选择截止时间" readonly="readonly" name="taskEndT"/>  
+										<i class="am-icon-calendar"></i> <input type="text"
+											class="am-form-field am-input-sm" placeholder="年/月/日"
+											name="taskEndTime" value="${param.taskEndTime }">
 									</div>
+								</form>
 							</div>
-
+							
+							<input hidden="" name="taskId" value="${param.taskId }" />
+							<input hidden="" name="taskStatus" value ="${param.taskStatus }"></textarea>
 						</div>
 						<div class="am-g am-margin-top-sm">
 							<div class="am-u-sm-2 am-text-right">任务详情</div>
 							<div class="am-u-sm-10">
-								<textarea rows="10" placeholder="请输入任务内容" name="taskContent">${param.taskContent }</textarea>
+								<textarea rows="10" placeholder="请输入任务内容" name="taskContent" >${param.taskContent }</textarea>
 							</div>
 						</div>
 					</div>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -10,11 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/i/app-icon72x72@2x.png">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css">
 </head>
 <body>
   <!-- content start -->
@@ -28,6 +29,9 @@
         <form class="am-form">
           <table class="am-table am-table-striped am-table-hover table-main">
             <thead>
+            <tr>
+            	<th colspan="6" style="color:green;text-align:center">${msg }</th>	
+            </tr>
               <tr>
                 <th class="table-id">ID</th>
                 <th class="table-title">任务内容</th>
@@ -38,55 +42,21 @@
               </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td><small>任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容</small></td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>测试1号</td>
-              
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 提交</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><small>任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容</small></td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>测试1号</td>
-              
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 提交</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><small>任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容任务内容</small></td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>2014年9月4日 7:28:47</td>
-              <td>测试1号</td>
-              
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 提交</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
+            <c:forEach items="${taskList}"  var="taskItem" >
+					<tr>
+						<td>${taskItem.taskId }</td>
+						<td><small>${taskItem.taskContent}</small></td>
+						<td>${taskItem.taskCreateTime }</td>
+						<td>${taskItem.taskFinishTime }</td>
+						<td>${taskItem.taskGetId }</td>
+						<td><a href="/task/submitTask/${taskItem.taskId}" 
+						class="am-btn am-btn-default am-btn-xs am-text-secondary">提交</a></td>
+					</tr>
+				</c:forEach>
           </tbody>
         </table>
           <div class="am-cf">
-  共 15 条记录
+  共${taskTotal }条记录
   <div class="am-fr">
     <ul class="am-pagination">
       <li class="am-disabled"><a href="#">«</a></li>
@@ -107,9 +77,9 @@
     </div>
   </div>
   <!-- content end -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>
