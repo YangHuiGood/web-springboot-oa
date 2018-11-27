@@ -1,3 +1,5 @@
+
+var token="";
 $(function() {
 	var w = 320, h = 240;
 	var pos = 0, ctx = null, saveCB, image = [];
@@ -31,17 +33,19 @@ $(function() {
 				ctx.putImageData(img, 0, 0);
 				$.ajax({
 					type : "post",
-					url : "/face/sign?t=" + new Date().getTime(),
+					url : "/face/book",
 					data : {
 						type : "pixel",
 						image : canvas.toDataURL("image/png")
 					},
 					dataType : "html",
 					success : function(data) {
+						data=data.substring(1, data.length() - 1);
+						alert(data);
+						window.location.reload();
+						window.location.href = 'admin-index';						
 						console.log("====" + data);
 						pos = 0;
-						$("#img2").attr("src", "");
-						$("#img2").attr("src", data);
 					}
 				});
 			}
@@ -49,35 +53,23 @@ $(function() {
 
 	} else {
 
-		saveCB = function(data) {
-			image.push(data);
+        saveCB = function(data) {
+            image.push(data);
 
-			pos += 4 * w;
+            pos+= 4 * 320;
 
-			if (pos >= 4 * w * h) {
-				$.ajax({
-					type : "post",
-					url : "/face/sign",
-					data : {
-						type : "pixel",
-						image : image.join('|')
-					},
-					dataType : "json",
-					success : function(data) {
-						console.log("+++++" + eval(msg));
-						pos = 0;
-						$("#img").attr("src", msg + "");
-					}
-				});
-			}
-		};
-	}
+            if (pos >= 4 * 320 * 240) {
+                $.post("/face/book", {type: "pixel", image: image.join('|')});
+                pos = 0;
+            }
+        };
+    }
 
-	$("#webcam2").webcam({
+	$("#webcam").webcam({
 		width : w,
 		height : h,
 		mode : "callback",
-		swffile : "assets/js/jscam_canvas_only.swf",
+		swffile : "/assets/js/jscam_canvas_only.swf",
 
 		onSave : saveCB,
 
@@ -92,6 +84,6 @@ $(function() {
 });
 
 // 拍照
-function savePhoto2() {
-	webcam.capture();
+function savePhoto() {
+	webcam.capture(1);
 }

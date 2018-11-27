@@ -16,11 +16,8 @@ public class UserService {
 	private HttpClientService client;
 	public User login(String userName,String userPassword) throws Exception{
 		String url = "http://sign.oa.com/sign/login/?userName="+userName+"&userPassword="+userPassword;
-//		String jsonData = client.doGet(url);
-//		User user = ObjectUtil.mapper.readValue(jsonData, User.class); 
-		User user = new User();
-		user.setUserName(userName);
-		user.setUserPassword(userPassword);
+		String jsonData = client.doGet(url);
+		User user = ObjectUtil.mapper.readValue(jsonData, User.class); 
 		return user;
 	}
 }
