@@ -21,7 +21,7 @@
 </head>
 <frameset rows="5.3%,*,8%" framespacing="0" frameborder="no">
 	<frame src="header.jsp"  marginwidth="0" marginheight="0"  noresize="noresize" name="header" />
-	<frameset cols="13.6%,*" framespacing="0">
+	<frameset cols="15%,*" framespacing="0">
 		<frame src="left.jsp" noresize="noresize" name="left"/>
 		<frame src="right.jsp" noresize="noresize" name="right"/>
 	</frameset>

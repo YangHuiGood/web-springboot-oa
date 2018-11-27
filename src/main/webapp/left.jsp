@@ -19,10 +19,9 @@
 <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
-<<<<<<< HEAD
 	<div class="am-cf admin-header">
 		<!-- sidebar start -->
-		<div class="admin-sidebar" >
+		<div class="admin-sidebar">
 			<ul class="am-list admin-sidebar-list">
 				<li><a target="right" href="admin-index.jsp"><span
 						class="am-icon-home"></span> 签到</a></li>
@@ -35,6 +34,8 @@
 							class="am-cf"><span class="am-icon-pencil-square-o"></span>
 								发布任务<span
 								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+						<li><a target="right" href="task-search.jsp"><span
+								class="am-icon-table""></span> 搜索任务</a></li>
 						<li><a target="right" href="task-uncomplete.jsp"><span
 								class="am-icon-table""></span> 待完成</a></li>
 						<li><a target="right" href="task-unaccepted.jsp"><span
@@ -47,38 +48,24 @@
 								class="am-icon-table"></span> 我发布的<span
 								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 					</ul></li>
+				<!-- 权限管理 -->
+				<li class="admin-parent"><a class="am-cf"
+					data-am-collapse="{target: '#collapse-nav1'}"><span
+						class="am-icon-file"></span> 权限管理 <span
+						class="am-icon-angle-right am-fr am-margin-right"></span></a>
+					<ul class="am-list am-collapse admin-sidebar-sub"
+						id="collapse-nav1">
+						<li><a target="right" href="user-add.jsp" class="am-cf"><span
+								class="am-icon-pencil-square-o"></span> 添加新用户<span
+								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+						<li><a target="right" href="popedom-table.jsp"><span
+								class="am-icon-table""></span> 权限列表</a></li>
+						<li><a target="right" href="popedom-add.jsp" class="am-cf"><span
+								class="am-icon-pencil-square-o"></span> 添加权限<span
+								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+					</ul></li>
 				<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
 			</ul>
-=======
-<div class="am-cf admin-main">
-  <!-- sidebar start -->
-  <div class="admin-sidebar">
-    <ul class="am-list admin-sidebar-list">
-      <li><a target="right" href="admin-index.jsp"><span class="am-icon-home"></span> 签到</a></li>
-      <!-- 任务管理 -->
-      <li class="admin-parent">
-        <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 任务管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-        <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav">
-          <li><a target="right" href="task-releaseform.jsp" class="am-cf"><span class="am-icon-pencil-square-o"></span> 发布任务<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-          <li><a target="right" href="task-uncomplete.jsp"><span class="am-icon-table""></span> 待完成</a></li>
-          <li><a target="right" href="task-unaccepted.jsp"><span class="am-icon-table"></span> 待接收</a></li>
-          <li><a target="right" href="task-refused.jsp"><span class="am-icon-bug""></span> 已拒绝</a></li>
-          <li><a target="right" href="task-completed.jsp"><span class="am-icon-check"></span> 已完成</a></li>
-          <li><a target="right" href="task-released.jsp"><span class="am-icon-table"></span> 我发布的<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-        </ul>
-      </li>
-      <!-- 权限管理 -->
-      <li class="admin-parent">
-        <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-file"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-        <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav1">
-          <li><a target="right" href="popedom-table.jsp"><span class="am-icon-table""></span> 权限列表</a></li>
-          <li><a target="right" href="popedom-add.jsp" class="am-cf"><span class="am-icon-pencil-square-o"></span> 添加权限<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-        </ul>
-      </li>
-      <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
-    </ul>
->>>>>>> c54168282384aef4909a3ce2a492a8dab1936f64
-
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>
