@@ -51,6 +51,7 @@ public class User {
 	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
+
 	public String getFatherId() {
 		return fatherId;
 	}

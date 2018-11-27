@@ -4,9 +4,13 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <dependent-module archiveName="common-springboot-oa-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/common-springboot-oa/common-springboot-oa">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+>>>>>>> 8c748335c838af34dd9df6e359b5b356fb99f385
         <property name="context-root" value="web-springboot-oa"/>
         <property name="java-output-path" value="/web-springboot-oa/target/classes"/>
     </wb-module>
