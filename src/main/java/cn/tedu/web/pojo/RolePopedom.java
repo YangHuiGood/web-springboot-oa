@@ -1,6 +1,8 @@
 package cn.tedu.web.pojo;
 
-public class RolePopedom {
+import java.io.Serializable;
+
+public class RolePopedom implements Serializable{
 	
 	private String id;
 	private String popedomId;

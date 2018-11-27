@@ -1,6 +1,8 @@
 package cn.tedu.web.pojo;
 
-public class Popedom {
+import java.io.Serializable;
+
+public class Popedom implements Serializable{
 	
 	private String popedomId;
 	private String popedomName;

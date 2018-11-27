@@ -1,6 +1,8 @@
 package cn.tedu.web.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 	private String userId;//用户id
 	private String userName;//用户名称
 	private String userPassword;//用户密码
@@ -8,6 +10,8 @@ public class User {
 	private String userEmail;//用户邮箱
 	private String userPhone;//用户电话
 	private Integer roleId;//角色id
+	private String fatherId;//父级id
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -49,6 +53,12 @@ public class User {
 	}
 	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
+	}
+	public String getFatherId() {
+		return fatherId;
+	}
+	public void setFatherId(String fatherId) {
+		this.fatherId = fatherId;
 	}
 	
 	

@@ -1,6 +1,7 @@
 package cn.tedu.web.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +20,7 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
 	private PopedomService popedomService;
 	
 	@RequestMapping("/user/login")
@@ -33,7 +35,8 @@ public class UserController {
 		if(user != null){ //登录成功
 			Integer roleId = user.getRoleId();
 			//根据角色id查询角色大权限
-			List<RolePopedom> rolePopeList = popedomService.selectRolePope(roleId);
+			Map<String,List<RolePopedom>> map = popedomService.selectBigRolePope(roleId);
+			req.getSession().setAttribute("map", map);
 			req.getSession().setAttribute("user", user);			
 		}
 		return "redirect:/manage";		
