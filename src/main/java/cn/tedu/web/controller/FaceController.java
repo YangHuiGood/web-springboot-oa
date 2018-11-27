@@ -72,17 +72,19 @@ public class FaceController {
 	 */
 	@RequestMapping("/book")
 	@ResponseBody
-	public String faceBook(String image) throws Exception {
+	public String faceBook(String image,HttpServletRequest req) throws Exception {
+		HttpSession session = req.getSession();
+		User user=(User) session.getAttribute("user");
 		if(image==null){
-			VoiceUtil.play("签到失败！", "5", "5", "4");
+			VoiceUtil.play(user.getUserName()+"签到失败！", "5", "5", "4");
 			return ObjectUtil.mapper.writeValueAsString("签到失败！");
 		}
 		boolean s=faceService.book(image);
 		if(s){
-			VoiceUtil.play("签到成功！", "5", "5", "4");
+			VoiceUtil.play(user.getUserName()+"签到成功！", "5", "5", "4");
 			return ObjectUtil.mapper.writeValueAsString("签到成功！");
 		}
-		VoiceUtil.play("签到失败！", "5", "5", "4");
+		VoiceUtil.play(user.getUserName()+"签到失败！", "5", "5", "4");
 		return ObjectUtil.mapper.writeValueAsString("签到失败！");
 	}
 

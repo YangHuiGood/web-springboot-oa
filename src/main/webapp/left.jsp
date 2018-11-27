@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -19,9 +20,12 @@
 <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
-	<div class="am-cf admin-main">
+
+
+	<div class="am-cf admin-header">
 		<!-- sidebar start -->
 		<div class="admin-sidebar">
+
 			<ul class="am-list admin-sidebar-list">
 				<!-- 签到系统 -->
 				<li class="admin-parent"><a class="am-cf"
@@ -31,50 +35,56 @@
 					<ul class="am-list am-collapse admin-sidebar-sub"
 						id="collapse-nav1">
 						<li><a target="right" href="admin-index.jsp"><span
-								class="am-icon-table" ></span> 人脸签到</a></li>
+								class="am-icon-table"></span> 人脸签到</a></li>
 						<li><a target="right" href="face-book.jsp" class="am-cf"><span
 								class="am-icon-pencil-square-o"></span> 人脸注册<span
 								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-					</ul>
-				</li>
-				<!-- 任务管理 -->
-				<li class="admin-parent"><a class="am-cf"
-					data-am-collapse="{target: '#collapse-nav'}"><span
-						class="am-icon-file"></span> 任务管理 <span
-						class="am-icon-angle-right am-fr am-margin-right"></span></a>
-					<ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav">
-						<li><a target="right" href="task-releaseform.jsp"
-							class="am-cf"><span class="am-icon-pencil-square-o"></span>
-								发布任务<span
-								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-						<li><a target="right" href="task-uncomplete.jsp"><span
-								class="am-icon-table""></span> 待完成</a></li>
-						<li><a target="right" href="task-unaccepted.jsp"><span
-								class="am-icon-table"></span> 待接收</a></li>
-						<li><a target="right" href="task-refused.jsp"><span
-								class="am-icon-bug""></span> 已拒绝</a></li>
-						<li><a target="right" href="task-completed.jsp"><span
-								class="am-icon-check"></span> 已完成</a></li>
-						<li><a target="right" href="task-released.jsp"><span
-								class="am-icon-table"></span> 我发布的<span
-								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 					</ul></li>
-				<!-- 权限管理 -->
-				<li class="admin-parent"><a class="am-cf"
-					data-am-collapse="{target: '#collapse-nav1'}"><span
-						class="am-icon-file"></span> 权限管理 <span
-						class="am-icon-angle-right am-fr am-margin-right"></span></a>
-					<ul class="am-list am-collapse admin-sidebar-sub"
-						id="collapse-nav1">
-						<li><a target="right" href="popedom-table.jsp"><span
-								class="am-icon-table""></span> 权限列表</a></li>
-						<li><a target="right" href="popedom-add.jsp" class="am-cf"><span
-								class="am-icon-pencil-square-o"></span> 添加权限<span
-								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-					</ul></li>
-				<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+				<c:if test="${sessionScope.user.roleId=='1'}">
+					<!-- 任务系统 -->
+					<li class="admin-parent"><a class="am-cf"
+						data-am-collapse="{target: '#collapse-nav'}"><span
+							class="am-icon-file"></span> 任务管理 <span
+							class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						<ul class="am-list am-collapse admin-sidebar-sub"
+							id="collapse-nav">
+							<li><a target="right" href="task/sendTask" class="am-cf"><span
+									class="am-icon-pencil-square-o"></span> 发布任务<span
+									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+							<li><a target="right" href="task-search.jsp"><span
+									class="am-icon-table""></span> 搜索任务</a></li>
+							<li><a target="right" href="task/showtasks/1"><span
+									class="am-icon-table""></span> 待完成</a></li>
+							<li><a target="right" href="task/showtasks/2"><span
+									class="am-icon-table"></span> 待接收</a></li>
+							<li><a target="right" href="task/showtasks/3"><span
+									class="am-icon-bug""></span> 已拒绝</a></li>
+							<li><a target="right" href="task/showtasks/4"><span
+									class="am-icon-check"></span> 已完成</a></li>
+							<li><a target="right" href="task/showtasks/5"><span
+									class="am-icon-table"></span> 我发布的<span
+									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+						</ul></li>
+					<!-- 权限管理 -->
+					<li class="admin-parent"><a class="am-cf"
+						data-am-collapse="{target: '#collapse-nav1'}"><span
+							class="am-icon-file"></span> 权限管理 <span
+							class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						<ul class="am-list am-collapse admin-sidebar-sub"
+							id="collapse-nav1">
+							<li><a target="right" href="user-add.jsp" class="am-cf"><span
+									class="am-icon-pencil-square-o"></span> 添加新用户<span
+									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+							<li><a target="right" href="popedom-table.jsp"><span
+									class="am-icon-table""></span> 权限列表</a></li>
+							<li><a target="right" href="popedom-add.jsp" class="am-cf"><span
+									class="am-icon-pencil-square-o"></span> 添加权限<span
+									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+						</ul></li>
+					</c:if>
+					<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
 			</ul>
-
+			
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>
@@ -83,7 +93,6 @@
 					<p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
 				</div>
 			</div>
-
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>
@@ -95,7 +104,7 @@
 		</div>
 		<!-- sidebar end -->
 	</div>
-	
+
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<!--<![endif]-->

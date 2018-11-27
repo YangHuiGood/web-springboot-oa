@@ -1,5 +1,4 @@
-
-var token="";
+var token = "";
 $(function() {
 	var w = 320, h = 240;
 	var pos = 0, ctx = null, saveCB, image = [];
@@ -40,11 +39,9 @@ $(function() {
 					},
 					dataType : "html",
 					success : function(data) {
-						data=data.substring(1, data.length() - 1);
-						alert(data);
+
 						window.location.reload();
-						window.location.href = 'admin-index';						
-						console.log("====" + data);
+
 						pos = 0;
 					}
 				});
@@ -53,17 +50,20 @@ $(function() {
 
 	} else {
 
-        saveCB = function(data) {
-            image.push(data);
+		saveCB = function(data) {
+			image.push(data);
 
-            pos+= 4 * 320;
+			pos += 4 * 320;
 
-            if (pos >= 4 * 320 * 240) {
-                $.post("/face/book", {type: "pixel", image: image.join('|')});
-                pos = 0;
-            }
-        };
-    }
+			if (pos >= 4 * 320 * 240) {
+				$.post("/face/book", {
+					type : "pixel",
+					image : image.join('|')
+				});
+				pos = 0;
+			}
+		};
+	}
 
 	$("#webcam").webcam({
 		width : w,
