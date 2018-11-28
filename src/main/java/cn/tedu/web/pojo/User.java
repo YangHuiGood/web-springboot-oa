@@ -60,6 +60,12 @@ public class User implements Serializable{
 	public void setFatherId(String fatherId) {
 		this.fatherId = fatherId;
 	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userPassword=" + userPassword + ", imgToken="
+				+ imgToken + ", userEmail=" + userEmail + ", userPhone=" + userPhone + ", roleId=" + roleId
+				+ ", fatherId=" + fatherId + "]";
+	}
 	
 	
 }

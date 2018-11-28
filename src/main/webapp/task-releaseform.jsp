@@ -65,7 +65,7 @@
 									<div class="am-form-group am-form-icon">
 										<!-- <i class="am-icon-calendar"> </i>--> <input type="text" class="Wdate" 
 										onclick="WdatePicker({dateFmt:'yyyy-MM-dd '})" 
-										placeholder="点击选择截止时间" readonly="readonly" name="taskEndT"/>  
+										placeholder="点击选择截止时间" readonly="readonly" name="taskEndTime"/>  
 									</div>
 							</div>
 

@@ -32,26 +32,25 @@ public class TaskController {
 	 * @throws Exception 
 	 * */
 	@RequestMapping("/task/sendTask")
-	public String sendTask(Task task ,String taskEndT, HttpServletRequest req,Model model) throws Exception{
+	public String sendTask(Task task ,String taskEndTime, HttpServletRequest req,Model model) throws Exception{
 		
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId =user.getUserId(); 
 		task.setTaskPostId(userId);
-		task.setTaskPostId(userId);
 		int flag = 0;		
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		java.util.Date date_util = sdf.parse(taskEndT); //转换为util.date
-		Date taskEndTime = new java.sql.Date(date_util.getTime());//转换为sql.date
 		task.setTaskEndTime(taskEndTime);
-		
+		if(task.getTaskGetId()==null){
+			
+		}
 		if(task.getTaskEndTime()==null){
 			model.addAttribute("msg","截止时间不能为空");
 			List<User> list = taskService.getUsers(userId);
 			model.addAttribute("userList",list);
 			return "task-releaseform";
-		}else if(task.getTaskContent()==null){
+		}
+		if(task.getTaskContent()==null){
 			model.addAttribute("msg", "任务内容不能为空");
 		}
 		if(task.getTaskStatus()>0 && task.getTaskStatus()<5){

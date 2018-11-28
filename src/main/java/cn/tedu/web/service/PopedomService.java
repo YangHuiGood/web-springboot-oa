@@ -11,7 +11,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import cn.tedu.common.service.HttpClientService;
 import cn.tedu.common.util.ObjectUtil;
+import cn.tedu.common.vo.HttpResult;
 import cn.tedu.web.pojo.RolePopedom;
+import cn.tedu.web.pojo.User;
 
 @Service
 public class PopedomService {
@@ -63,6 +65,7 @@ public class PopedomService {
 						.constructCollectionType(List.class, RolePopedom.class));
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			return rpList;
 		}		
 		return rpList;
@@ -79,5 +82,38 @@ public class PopedomService {
 		String result = client.doGet(url);
 		return result;
 	}
-	
+
+	public String addUser(User user, String major,String roleName) throws Exception {
+		//通过主管人查询id
+		String url1 = "http://popedom.oa.com/popedom/selectMajor/"+major;
+		String fatherId = client.doGet(url1);
+		//通过角色名查询角色id
+		String url2 = "http://popedom.oa.com/popedom/selectRoleId/"+roleName;
+		String roleId = client.doGet(url2);
+		String url3 = "http://popedom.oa.com/popedom/addUser";
+		Map<String,Object> map = new HashMap<>();
+		map.put("userName", user.getUserName());
+		map.put("userPassword", user.getUserPassword());
+		map.put("roleId", roleId);
+		map.put("fatherId", fatherId);
+		HttpResult result = client.doPost(url3, map);
+		return result.getBody();
+	}
+
+	public List<String> selectMajor(String roleName) throws Exception {
+		String url = "http://popedom.oa.com/popedom/selectUsers/"+roleName;
+		List<String> nameList = null;
+		try {
+			String jsonData = client.doGet(url);
+			JsonNode data = ObjectUtil.mapper.readTree(jsonData);
+			if(data.isArray()&&data.size()>0){
+				nameList = ObjectUtil.mapper.readValue(data.traverse(), ObjectUtil.mapper.getTypeFactory()
+						.constructCollectionType(List.class, String.class));
+			}
+		} catch (Exception e) {
+			return nameList;
+		}		
+		return nameList;
+	}
+
 }

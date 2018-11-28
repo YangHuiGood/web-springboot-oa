@@ -21,60 +21,45 @@
 <div class="admin-content">
 
   <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>添加权限</small></div>
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>角色权限添加</small></div>
   </div>
 
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
       <li class="am-active"><a href="#tab1">权限信息</a></li>
     </ul>
-    <form action="#" method="post">
+    <form action="/popedom/addRolePope" method="post">
      <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
         <div class="am-g am-margin-top">
           <div class="am-u-sm-2 am-text-right">角色名称</div>
           <div class="am-u-sm-10">
-            <select>
-              <option value="option1">boss</option>
-              <option value="option2">组长</option>
-              <option value="option3">成员</option>
+            <select name="roleName">
+              <option value="boss">boss</option>
+              <option value="组长">组长</option>
+              <option value="成员">成员</option>
             </select>
           </div>
         </div>
         <div class="am-g am-margin-top">
           <div class="am-u-sm-2 am-text-right">权限名称</div>
           <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限名称">
+            <label><input name="popedomName" type="checkbox" value="发布任务" />&nbsp;<small>发布任务</small> </label>&nbsp;&nbsp; &nbsp; &nbsp;  
+            <label><input name="popedomName" type="checkbox" value="我发布的" />&nbsp;<small>我发布的任务 </small></label> 
           </div>
         </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">父级权限名称</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="顶级权限留空">
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">域名</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限域名">
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">请求URL</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限url">
-          </div>
-        </div>
+        
+        <div class="am-margin">
+    		<input type="submit" class="am-btn am-btn-primary am-btn-xs"></input>
+    		<input type="reset" class="am-btn am-btn-primary am-btn-xs"></input>
+  		</div>
     </form>
     
       </div>
     </div>
   </div>
 
-  <div class="am-margin">
-    <input type="submit" class="am-btn am-btn-primary am-btn-xs"></input>
-    <input type="reset" class="am-btn am-btn-primary am-btn-xs"></input>
-  </div>
+  
 </div>
 <!-- content end -->
 

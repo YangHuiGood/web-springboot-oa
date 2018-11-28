@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.tedu.common.util.MD5Util;
 import cn.tedu.web.pojo.RolePopedom;
@@ -41,4 +44,32 @@ public class UserController {
 		}
 		return "redirect:/manage";		
 	}
+	
+	// 注册成员
+	@RequestMapping("/user/addUser")
+	public String addUser(User user, String major, Model model,String roleName) throws Exception {
+		String result = popedomService.addUser(user, major,roleName);
+		if ("success".equals(result)) {
+			model.addAttribute("result", "添加成功");
+			return "forward:/popedom/rolePopeList";
+		} else {
+			model.addAttribute("result", "添加失败");
+			return "forward:/popedom/rolePopeList";
+		}
+	}
+	
+	@RequestMapping("/user_ajax/selectMajor")
+	@ResponseBody
+	public List<String> selectMajor(String roleName) throws Exception{
+		List<String> uList = popedomService.selectMajor(roleName);
+		return uList;
+	} 
+
+	@RequestMapping("/user/logout")
+	public String logout(HttpSession session){
+		//清空session中的数据
+		session.removeAttribute("user");
+		return "redirect:/mamage";
+	}
+
 }

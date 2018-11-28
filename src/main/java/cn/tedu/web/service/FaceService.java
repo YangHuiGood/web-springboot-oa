@@ -23,6 +23,7 @@ public class FaceService {
 	public String savePic(String image,String path,String userName) throws Exception {
 		String url="http://sign.oa.com/face/url";
 		image=image+","+path+","+userName;
+
 		String doPostJson = client.doPostJson(url, image);
 		return doPostJson;
 	}
