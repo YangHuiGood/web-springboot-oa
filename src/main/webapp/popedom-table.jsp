@@ -37,57 +37,21 @@
               </tr>
           </thead>
           <tbody>
-            <c:forEach items="rpList" var="rolePopedom">
+            <c:forEach items="${rpList }" var="rolePopedom">
             <tr>
-              <td>${rolePopedom.roleName}</td>
-              <td><small>${rolePopedom.popedomName}</small></td>
+              <td>${rolePopedom.roleName }</td>
+              <td><small>${rolePopedom.popedomName }</small></td>
               <td>${rolePopedom.popedomUrl }</td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                   <a href="javascript:if(confirm('你确定要删除该任务吗？')) location='/popedom/deleteRolePope/${rolePopedom.roleName }/${rolePopedom.popedomName }'" 
+                   class="am-btn am-btn-default am-btn-xs am-text-danger" id="del">删除</a>                 
                   </div>
                 </div>
               </td>
             </tr>
             </c:forEach>
-            
-            <tr>
-              <td>boos</td>
-              <td><small>发布任务</small></td>
-              <td>/task/add</td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>组长</td>
-              <td><small>发布任务</small></td>
-              <td>/task/add</td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>成员</td>
-              <td><small>发布任务</small></td>
-              <td>/task/add</td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
           <div class="am-cf">
@@ -97,9 +61,6 @@
       <li class="am-disabled"><a href="#">«</a></li>
       <li class="am-active"><a href="#">1</a></li>
       <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
       <li><a href="#">»</a></li>
     </ul>
   </div>

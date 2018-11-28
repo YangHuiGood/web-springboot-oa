@@ -24,7 +24,6 @@
 	<div class="am-cf admin-header">
 		<!-- sidebar start -->
 		<div class="admin-sidebar">
-			<c:if test="${sessionScope.user.roleId=='1'}">
 				<ul class="am-list admin-sidebar-list">
 					<li><a target="right" href="admin-index.jsp"><span
 							class="am-icon-home"></span> 签到</a></li>
@@ -51,6 +50,7 @@
 									class="am-icon-table"></span> 我发布的<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 						</ul></li>
+				 <c:if test="${sessionScope.user.roleId=='1'}">
 					<!-- 权限管理 -->
 					<li class="admin-parent"><a class="am-cf"
 						data-am-collapse="{target: '#collapse-nav1'}"><span
@@ -61,15 +61,16 @@
 							<li><a target="right" href="user-add.jsp" class="am-cf"><span
 									class="am-icon-pencil-square-o"></span> 添加新用户<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-							<li><a target="right" href="popedom-table.jsp"><span
+							<li><a target="right" href="/popedom/rolePopeList"><span
 									class="am-icon-table""></span> 权限列表</a></li>
 							<li><a target="right" href="popedom-add.jsp" class="am-cf"><span
 									class="am-icon-pencil-square-o"></span> 添加权限<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 						</ul></li>
+				 </c:if>
 					<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
 				</ul>
-			</c:if>
+			
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>

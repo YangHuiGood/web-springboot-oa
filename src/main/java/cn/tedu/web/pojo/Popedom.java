@@ -2,11 +2,10 @@ package cn.tedu.web.pojo;
 
 import java.io.Serializable;
 
-public class Popedom implements Serializable{
-	
+public class Popedom implements Serializable {
 	private String popedomId;
 	private String popedomName;
-	private String popedomFatherId;
+	private String popedomFatherid;
 	private String popedomUrl;
 	
 	public String getPopedomId() {
@@ -21,11 +20,11 @@ public class Popedom implements Serializable{
 	public void setPopedomName(String popedomName) {
 		this.popedomName = popedomName;
 	}
-	public String getPopedomFatherId() {
-		return popedomFatherId;
+	public String getPopedomFatherid() {
+		return popedomFatherid;
 	}
-	public void setPopedomFatherId(String popedomFatherId) {
-		this.popedomFatherId = popedomFatherId;
+	public void setPopedomFatherid(String popedomFatherid) {
+		this.popedomFatherid = popedomFatherid;
 	}
 	public String getPopedomUrl() {
 		return popedomUrl;

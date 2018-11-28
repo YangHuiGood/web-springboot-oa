@@ -6,7 +6,7 @@ public class RolePopedom implements Serializable{
 	
 	private String id;
 	private String popedomId;
-	private String popedomFatherId;
+	private String popedomFatherid;
 	private String roleName;
 	private String popedomName;
 	private String popedomUrl;
@@ -23,11 +23,11 @@ public class RolePopedom implements Serializable{
 	public void setPopedomId(String popedomId) {
 		this.popedomId = popedomId;
 	}
-	public String getPopedomFatherId() {
-		return popedomFatherId;
+	public String getPopedomFatherid() {
+		return popedomFatherid;
 	}
-	public void setPopedomFatherId(String popedomFatherId) {
-		this.popedomFatherId = popedomFatherId;
+	public void setPopedomFatherid(String popedomFatherid) {
+		this.popedomFatherid = popedomFatherid;
 	}
 	public String getRoleName() {
 		return roleName;
@@ -47,5 +47,5 @@ public class RolePopedom implements Serializable{
 	public void setPopedomUrl(String popedomUrl) {
 		this.popedomUrl = popedomUrl;
 	}
-	
+
 }

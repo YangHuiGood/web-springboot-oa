@@ -15,6 +15,8 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/regist_ajax.js"></script>
 </head>
 <body>
 <!-- content start -->
@@ -23,46 +25,44 @@
   <div class="am-cf am-padding">
     <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>添加新用户</small></div>
   </div>
-
+  <!-- <div class="msg"></div> -->
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
       <li class="am-active"><a href="#tab1">用户信息</a></li>
     </ul>
-			<form action="#" method="post">
+			<form action="/user/addUser" method="post">
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-fade am-in am-active" id="tab1">
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">新用户名称</div>
 							<div class="am-u-sm-10">
 								<input type="text" class="am-form-field am-input-sm"
-									placeholder="请输入新用户名称">
+									placeholder="请输入新用户名称" name="userName">
 							</div>
 						</div>
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">新用户密码</div>
 							<div class="am-u-sm-10">
 								<input type="text" class="am-form-field am-input-sm"
-									placeholder="请输入新用户密码">
+									placeholder="请输入新用户密码" name="userPassword">
 							</div>
 						</div>
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">角色名称</div>
 							<div class="am-u-sm-10">
-								<select>
-									<option value="option1">boss</option>
-									<option value="option2">组长</option>
-									<option value="option3">成员</option>
+								<select name="roleName">
+									<option valuse="无">无</option>
+									<option value="boss">boss</option>
+									<option value="组长">组长</option>
+									<option value="成员">成员</option>
 								</select>
 							</div>
 						</div>
 						<div class="am-g am-margin-top">
 							<div class="am-u-sm-2 am-text-right">主管人</div>
 							<div class="am-u-sm-10">
-								<select>
-								    <option value="">无</option>
-									<option value="option1">张三</option>
-									<option value="option2">李四</option>
-									<option value="option3">王五</option>
+								<select name="major" id="major">
+								    <option value="0">选择角色</option>
 								</select>
 							</div>
 						</div>
@@ -82,7 +82,6 @@
 <!-- content end -->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
 <script src="assets/js/app.js"></script>
