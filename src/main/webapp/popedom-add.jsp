@@ -44,25 +44,8 @@
         <div class="am-g am-margin-top">
           <div class="am-u-sm-2 am-text-right">权限名称</div>
           <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限名称">
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">父级权限名称</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="顶级权限留空">
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">域名</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限域名">
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">请求URL</div>
-          <div class="am-u-sm-10">
-            <input type="text" class="am-form-field am-input-sm" placeholder="请输入新权限url">
+            <label><input name="popedomName" type="checkbox" value="发布任务" />&nbsp;<small>发布任务</small> </label>&nbsp;&nbsp; &nbsp; &nbsp;  
+            <label><input name="popedomName" type="checkbox" value="我发布的" />&nbsp;<small>我发布的任务 </small></label> 
           </div>
         </div>
     </form>

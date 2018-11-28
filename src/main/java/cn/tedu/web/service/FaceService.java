@@ -17,7 +17,7 @@ public class FaceService {
 	
 	
 	public String savePic(String image,String path) throws Exception {
-		String url="http://localhost:8089/face/url";
+		String url="http://sign.oa.com/face/url";
 		image=image+","+path;
 		String doPostJson = client.doPostJson(url, image);
 		return doPostJson;
@@ -25,7 +25,7 @@ public class FaceService {
 
 
 	public int regist(User user) throws Exception {
-		String url="http://localhost:8089/face/regist";
+		String url="http://sign.oa.com/face/regist";
 		String userStr=ObjectUtil.mapper.writeValueAsString(user);
 		String doPostJson = client.doPostJson(url, userStr);
 		return Integer.parseInt(doPostJson);
@@ -33,7 +33,7 @@ public class FaceService {
 
 
 	public boolean book(String image) throws Exception {
-		String url="http://localhost:8089/face/book";
+		String url="http://sign.oa.com/face/book";
 		String imageStr=image.split(",")[1];
 		String doPostJson = client.doPostJson(url, imageStr);
 		int s = Integer.parseInt(doPostJson);

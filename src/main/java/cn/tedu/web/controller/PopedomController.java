@@ -21,7 +21,6 @@ public class PopedomController {
 	@RequestMapping("/popedom/rolePopeList")
 	public String selectPope(Model model) throws Exception{
 		List<RolePopedom> rpList = popedomService.queryRolePope();
-		System.out.println(rpList);
 		model.addAttribute("rpList", rpList);
 		return "popedom-table";		
 	}
