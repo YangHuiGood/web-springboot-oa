@@ -39,9 +39,9 @@ $(function() {
 					},
 					dataType : "html",
 					success : function(data) {
-
 						window.location.reload();
-
+						$.getScript('assets/js/face2.js');
+						window.location.href = 'admin-index';
 						pos = 0;
 					}
 				});
@@ -60,6 +60,9 @@ $(function() {
 					type : "pixel",
 					image : image.join('|')
 				});
+				window.location.reload();
+				$.getScript('assets/js/face2.js');
+				window.location.href = 'admin-index';
 				pos = 0;
 			}
 		};

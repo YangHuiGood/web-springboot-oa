@@ -34,9 +34,9 @@
 						class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub"
 						id="collapse-nav1">
-						<li><a target="right" href="admin-index.jsp"><span
+						<li><a target="right" href="admin-index"><span
 								class="am-icon-table"></span> 人脸签到</a></li>
-						<li><a target="right" href="face-book.jsp" class="am-cf"><span
+						<li><a target="right" href="face-book" class="am-cf"><span
 								class="am-icon-pencil-square-o"></span> 人脸注册<span
 								class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 					</ul></li>
@@ -51,7 +51,7 @@
 							<li><a target="right" href="task/sendTask" class="am-cf"><span
 									class="am-icon-pencil-square-o"></span> 发布任务<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-							<li><a target="right" href="task-search.jsp"><span
+							<li><a target="right" href="task-search"><span
 									class="am-icon-table""></span> 搜索任务</a></li>
 							<li><a target="right" href="task/showtasks/1"><span
 									class="am-icon-table""></span> 待完成</a></li>
@@ -67,17 +67,17 @@
 						</ul></li>
 					<!-- 权限管理 -->
 					<li class="admin-parent"><a class="am-cf"
-						data-am-collapse="{target: '#collapse-nav1'}"><span
+						data-am-collapse="{target: '#collapse-nav2'}"><span
 							class="am-icon-file"></span> 权限管理 <span
 							class="am-icon-angle-right am-fr am-margin-right"></span></a>
 						<ul class="am-list am-collapse admin-sidebar-sub"
-							id="collapse-nav1">
-							<li><a target="right" href="user-add.jsp" class="am-cf"><span
+							id="collapse-nav2">
+							<li><a target="right" href="user-add" class="am-cf"><span
 									class="am-icon-pencil-square-o"></span> 添加新用户<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-							<li><a target="right" href="popedom-table.jsp"><span
+							<li><a target="right" href="popedom-table"><span
 									class="am-icon-table""></span> 权限列表</a></li>
-							<li><a target="right" href="popedom-add.jsp" class="am-cf"><span
+							<li><a target="right" href="popedom-add" class="am-cf"><span
 									class="am-icon-pencil-square-o"></span> 添加权限<span
 									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 						</ul></li>

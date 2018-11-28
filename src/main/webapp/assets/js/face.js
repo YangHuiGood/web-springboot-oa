@@ -1,5 +1,4 @@
-
-var token="";
+var token = "";
 $(function() {
 	var w = 320, h = 240;
 	var pos = 0, ctx = null, saveCB, image = [];
@@ -40,12 +39,12 @@ $(function() {
 					},
 					dataType : "html",
 					success : function(data) {
-						var str=data.split(",");
+						var str = data.split(",");
 						console.log("====" + data);
 						pos = 0;
 						$("#img").attr("src", "");
 						$("#img").attr("src", str[0]);
-						token=str[1];
+						token = str[1];
 					}
 				});
 			}
@@ -53,17 +52,20 @@ $(function() {
 
 	} else {
 
-        saveCB = function(data) {
-            image.push(data);
+		saveCB = function(data) {
+			image.push(data);
 
-            pos+= 4 * 320;
+			pos += 4 * 320;
 
-            if (pos >= 4 * 320 * 240) {
-                $.post("/face/url", {type: "pixel", image: image.join('|')});
-                pos = 0;
-            }
-        };
-    }
+			if (pos >= 4 * 320 * 240) {
+				$.post("/face/url", {
+					type : "pixel",
+					image : image.join('|')
+				});
+				pos = 0;
+			}
+		};
+	}
 
 	$("#webcam").webcam({
 		width : w,
@@ -90,18 +92,18 @@ function savePhoto() {
 
 // 删除当前照片
 function delPhoto() {
-	$("#img").attr("src","");
+	$("#img").attr("src", "");
 }
 
 // 存入user
 function saveUser() {
-	
+
 	var userPhone = $("#userPhone").val();
-	
+
 	var userEmail = $("#userEmail").val();
 
 	var userId = $("#userId").val();
-	
+
 	$.ajax({
 		type : "post",
 		url : "/face/regist",
@@ -114,7 +116,9 @@ function saveUser() {
 		dataType : "json",
 		success : function(data) {
 			alert(data);
-			window.location.href = 'admin-index'
+			window.location.reload();
+			$.getScript('assets/js/face.js');
+			window.location.href = 'admin-index';
 		}
 	});
 }
