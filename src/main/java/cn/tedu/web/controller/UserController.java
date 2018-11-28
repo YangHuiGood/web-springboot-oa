@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,4 +64,12 @@ public class UserController {
 		List<String> uList = popedomService.selectMajor(roleName);
 		return uList;
 	} 
+
+	@RequestMapping("/user/logout")
+	public String logout(HttpSession session){
+		//清空session中的数据
+		session.removeAttribute("user");
+		return "redirect:/mamage";
+	}
+
 }

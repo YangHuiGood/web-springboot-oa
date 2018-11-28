@@ -65,6 +65,7 @@ public class PopedomService {
 						.constructCollectionType(List.class, RolePopedom.class));
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			return rpList;
 		}		
 		return rpList;

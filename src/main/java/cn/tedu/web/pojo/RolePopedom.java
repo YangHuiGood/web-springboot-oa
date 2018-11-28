@@ -48,4 +48,10 @@ public class RolePopedom implements Serializable{
 		this.popedomUrl = popedomUrl;
 	}
 
+	@Override
+	public String toString() {
+		return "RolePopedom [id=" + id + ", popedomId=" + popedomId + ", popedomFatherid=" + popedomFatherid
+				+ ", roleName=" + roleName + ", popedomName=" + popedomName + ", popedomUrl=" + popedomUrl + "]";
+	}
+	
 }

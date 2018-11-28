@@ -1,3 +1,5 @@
+
+var token="";
 $(function() {
 	var w = 320, h = 240;
 	var pos = 0, ctx = null, saveCB, image = [];
@@ -31,17 +33,19 @@ $(function() {
 				ctx.putImageData(img, 0, 0);
 				$.ajax({
 					type : "post",
-					url : "/face/regist?t=" + new Date().getTime(),
+					url : "/face/url",
 					data : {
 						type : "pixel",
 						image : canvas.toDataURL("image/png")
 					},
 					dataType : "html",
 					success : function(data) {
+						var str=data.split(",");
 						console.log("====" + data);
 						pos = 0;
 						$("#img").attr("src", "");
-						$("#img").attr("src", data);
+						$("#img").attr("src", str[0]);
+						token=str[1];
 					}
 				});
 			}
@@ -49,35 +53,23 @@ $(function() {
 
 	} else {
 
-		saveCB = function(data) {
-			image.push(data);
+        saveCB = function(data) {
+            image.push(data);
 
-			pos += 4 * w;
+            pos+= 4 * 320;
 
-			if (pos >= 4 * w * h) {
-				$.ajax({
-					type : "post",
-					url : "/face/regist",
-					data : {
-						type : "pixel",
-						image : image.join('|')
-					},
-					dataType : "json",
-					success : function(data) {
-						console.log("+++++" + eval(msg));
-						pos = 0;
-						$("#img").attr("src", msg + "");
-					}
-				});
-			}
-		};
-	}
+            if (pos >= 4 * 320 * 240) {
+                $.post("/face/url", {type: "pixel", image: image.join('|')});
+                pos = 0;
+            }
+        };
+    }
 
 	$("#webcam").webcam({
 		width : w,
 		height : h,
 		mode : "callback",
-		swffile : "assets/js/jscam_canvas_only.swf",
+		swffile : "/assets/js/jscam_canvas_only.swf",
 
 		onSave : saveCB,
 
@@ -93,5 +85,36 @@ $(function() {
 
 // 拍照
 function savePhoto() {
-	webcam.capture();
+	webcam.capture(1);
+}
+
+// 删除当前照片
+function delPhoto() {
+	$("#img").attr("src","");
+}
+
+// 存入user
+function saveUser() {
+	
+	var userPhone = $("#userPhone").val();
+	
+	var userEmail = $("#userEmail").val();
+
+	var userId = $("#userId").val();
+	
+	$.ajax({
+		type : "post",
+		url : "/face/regist",
+		data : {
+			"userId" : userId,
+			"userPhone" : userPhone,
+			"userEmail" : userEmail,
+			"imgToken" : token
+		},
+		dataType : "json",
+		success : function(data) {
+			alert(data);
+			window.location.href = 'admin-index'
+		}
+	});
 }

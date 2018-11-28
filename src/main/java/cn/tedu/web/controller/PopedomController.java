@@ -44,7 +44,7 @@ public class PopedomController {
 		String result =  popedomService.addRolePope(roleName,popedomName);
 		if("success".equals(result)){
 			model.addAttribute("result", "添加成功");
-			return "popedom-add";
+			return "forward:/popedom/rolePopeList";
 		}else{
 			model.addAttribute("result", "添加失败");
 			return "popedom-add";
