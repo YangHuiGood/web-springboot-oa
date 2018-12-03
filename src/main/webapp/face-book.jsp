@@ -58,8 +58,8 @@
 </head>
 <body>
 	<div class="admin-content" align="center">
-		<div style="float: left;">
-			<div style="margin-left: 300px">
+		<div style="float: left;width: 300px">
+			<div style="margin-left: 10px">
 				<form class="am-form am-form-horizontal">
 					<div class="am-form-group" style="width: 300px; text-align: left">
 						<label for="user-name" class="am-form-label">姓名/Name:&nbsp;<font
@@ -83,8 +83,8 @@
 				</form>
 			</div>
 		</div>
-		<div style="float: right;">
-			<div style="margin-right: 300px">
+		<div style="float: right;margin-top:10px;width: 200px;">
+			<div style="margin-right: 10px">
 				<div id="webcam"></div>
 
 				<div id="photos">
@@ -96,7 +96,7 @@
 					onclick="savePhoto();" style="margin-top: 10px" />
 			</div>
 		</div>
-		<div style="margin-top: 380px; margin-left: 700px" align="left">
+		<div style="margin-top: 380px; margin-left: 200px" align="left">
 			<button class="btn btn-primary btn-lg" onclick="saveUser()">注&nbsp;&nbsp;&nbsp;册</button>
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin user Examples</title>
+<title>顶点oa管理</title>
 <meta name="description" content="这是一个 user 页面">
 <meta name="keywords" content="user">
 <meta name="viewport"
@@ -96,15 +96,15 @@
 					<p>
 						<span class="am-icon-bookmark"></span> 公告
 					</p>
-					<p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+					<p>越努力，越幸运！！！</p>
 				</div>
 			</div>
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>
 						<span class="am-icon-tag"></span> wiki
-					</p>
-					<p>Welcome to the Amaze UI wiki!</p>
+					</p>					
+					<p>Welcome to 顶点oa系统</p>
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin user Examples</title>
+<title>顶点oa管理</title>
 <meta name="description" content="这是一个 user 页面">
 <meta name="keywords" content="user">
 <meta name="viewport"
@@ -19,13 +19,13 @@
 <link rel="stylesheet" href="assets/css/admin.css">
 
 </head>
-<frameset rows="5.3%,*,8%" framespacing="0" frameborder="no">
-	<frame src="header.jsp"  marginwidth="0" marginheight="0"  noresize="noresize" name="header" />
-	<frameset cols="15%,*" framespacing="0">
-		<frame src="left.jsp" noresize="noresize" name="left"/>
+<frameset rows="10%,*,8%" framespacing="0" frameborder="no">
+	<frame src="header.jsp" scrolling="no" marginwidth="0" marginheight="0"  noresize="noresize" name="header" />
+	<frameset cols="25.4%,*" framespacing="0">
+		<frame src="left.jsp" scrolling="no" noresize="noresize" name="left"/>
 		<frame src="right.jsp" noresize="noresize" name="right"/>
 	</frameset>
-	<frame src="footer.jsp" marginwidth="0" marginheight="0" noresize="noresize" name="footer" />
+	<frame src="footer.jsp" scrolling="no" marginwidth="0" marginheight="0" noresize="noresize" name="footer" />
 </frameset>
 <body>
 </body>

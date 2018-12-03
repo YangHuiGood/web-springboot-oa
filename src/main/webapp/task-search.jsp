@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze后台管理系统模板HTML 表格页面 - cssmoban</title>
+  <title>顶点oa管理</title>
   <meta name="description" content="这是一个 table 页面">
   <meta name="keywords" content="table">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,26 +23,32 @@
 <script src="assets/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 	  <div class="row" style="margin-top: 100px">
-	    <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <h1 class="text-primary">任务信息搜索</h1>
+	    <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <h2 class="text-primary">任务信息搜索</h2>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-xs-4"></div>
 	  </div>
-		<div class="row" style="margin-top: 50px">
+	  <form class="navbar-form navbar-center" role="search" action="/task/searchTask" method="post">
+	   <div class="form-group">
+	  <div class="row" style="margin-top: 50px">
 		  <div class="col-xs-3"></div>
 		  <div class="col-xs-6">
-				<form class="navbar-form navbar-center" role="search">
-					<!-- <div class="form-group"> -->
-                       <input type="text" size="50" class="form-control input-lg " placeholder="Search">
-                   <!-- </div>-->
-                   <button type="submit" class="btn-success btn-lg">搜索一下</button> 				
-				</form>
-			</div>
+            <input type="text" class="form-control input-lg " placeholder="Search" name="search"> 				
+		  </div>
 		  <div class="col-xs-3"></div>
-		</div>
+	  </div>
+	   <div class="row" style="margin-top: 10px">
+	    <div class="col-xs-5"></div>
+	    <div class="col-xs-4">
+	       <button type="submit" class="btn-success btn-lg">搜索一下</button>
+	    </div>
+	    <div class="col-xs-3"></div>
+	   </div>
+	  </div>
+	  </form>
 	</div>
 
 </body>

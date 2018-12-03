@@ -45,7 +45,7 @@
 							<div style="color: red; text-align: center">${msg}</div>
 							<div class="am-u-sm-2 am-text-right">发布人</div>
 							<div class="am-u-sm-10">
-								<div>boss</div>
+								<div>${sessionScope.user.userName }</div>
 							</div>
 						</div>
 						<div class="am-g am-margin-top">
@@ -53,8 +53,7 @@
 							<div class="am-u-sm-10">
 								<select name="taskGetId" id="show">
 									<c:forEach items="${userList }" var="user">
-										<option value="${user.userId }">姓名:${user.userName} |
-											ID:${user.userId }</option>
+										<option value="${user.userId }">姓名:${user.userName}</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -63,8 +62,8 @@
 							<div class="am-u-sm-2 am-text-right">截止时间</div>
 							<div class="am-u-sm-10">
 									<div class="am-form-group am-form-icon">
-										<!-- <i class="am-icon-calendar"> </i>--> <input type="text" class="Wdate" 
-										onclick="WdatePicker({dateFmt:'yyyy-MM-dd '})" 
+										<!-- <i class="am-icon-calendar"> </i>--> <input type="text" class="Wdate"  
+										onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" 
 										placeholder="点击选择截止时间" readonly="readonly" name="taskEndTime"/>  
 									</div>
 							</div>

@@ -1,7 +1,5 @@
 package cn.tedu.web.controller;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.tedu.web.pojo.Task;
 import cn.tedu.web.pojo.User;
 import cn.tedu.web.service.TaskService;
+
 
 
 @Controller
@@ -25,24 +25,22 @@ public class TaskController {
 
 	/**
 	 * 发布任务给指定负责人
-	 * 
 	 * @param 从页面接收数据创建对象task  页面的请求req
-	 * 
 	 * @return 发布成功跳转到我发布的任务显示栏	失败则跳转到发布任务
 	 * @throws Exception 
 	 * */
 	@RequestMapping("/task/sendTask")
 	public String sendTask(Task task ,String taskEndTime, HttpServletRequest req,Model model) throws Exception{
-		
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId =user.getUserId(); 
 		task.setTaskPostId(userId);
 		int flag = 0;		
-		
+
 		task.setTaskEndTime(taskEndTime);
 		if(task.getTaskGetId()==null){
-			
+
+			model.addAttribute("msg","请指定任务负责人");
 		}
 		if(task.getTaskEndTime()==null){
 			model.addAttribute("msg","截止时间不能为空");
@@ -83,14 +81,15 @@ public class TaskController {
 	 * @param	无
 	 * 
 	 * @return 跳转至相应的页面
+	 * @throws Exception 
 	 * 
 	 */
 	@RequestMapping("/task/showTasks/{_status}")
-	public String showTasks(@PathVariable("_status") String _status,HttpServletRequest req,Model model){
+	public String showTasks(@PathVariable("_status") String _status,HttpServletRequest req,Model model) throws Exception{
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId();
-		
+
 		getPage(userId, _status, model, "");
 		int status = Integer.parseInt(_status);
 		switch (status) {
@@ -119,9 +118,9 @@ public class TaskController {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");	
 		String userId = user.getUserId();
-		
 
-		String msg = taskService.receiveTask(taskId);
+
+		String msg = taskService.receiveTask(taskId,userId);
 		getPage(userId, "2", model, msg);
 		return "task-unaccepted";
 	}
@@ -131,7 +130,7 @@ public class TaskController {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId();
-		
+
 
 		if(!("2".equals(taskStatus))){
 			if(!("3".equals(taskStatus))){
@@ -139,7 +138,7 @@ public class TaskController {
 				return "task-released";
 			}
 		}
-		String flag = taskService.deleteTask(taskId);
+		String flag = taskService.deleteTask(taskId,userId);
 		getPage(userId,5+"", model, flag);		
 		return  "task-released";
 	}
@@ -149,7 +148,7 @@ public class TaskController {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId(); 
-		String msg = taskService.completeTask(taskId);
+		String msg = taskService.completeTask(taskId,userId);
 		getPage(userId, "1", model, msg);
 		return "task-uncomplete";
 
@@ -159,7 +158,7 @@ public class TaskController {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId(); 
-		String msg = taskService.refuseTask(taskId);
+		String msg = taskService.refuseTask(taskId,userId);
 		getPage(userId, "2", model, msg);
 
 		return "task-unaccepted";
@@ -173,7 +172,22 @@ public class TaskController {
 		List<User> list = taskService.getUsers(userId);
 		model.addAttribute("userList",list);
 		return "task-releaseform";
-		
+
+	}
+	@RequestMapping("/task/changeTask")
+	public String changeTask(Task task,Model model,HttpServletRequest req ) throws Exception{
+		HttpSession session = req.getSession();
+		User user = (User) session.getAttribute("user");
+		String userId = user.getUserId();
+		List<User> list = taskService.getUsers(userId);
+		model.addAttribute("userList", list);
+		return "task-releaseform";
+	}
+	@RequestMapping("/task/searchTask")
+	public String searchTask(@RequestBody String search,Model model) throws Exception{
+		List<Task> list = taskService.searchTask(search);
+		model.addAttribute("taskList",list);
+		return "task-searchPage";
 	}
 
 

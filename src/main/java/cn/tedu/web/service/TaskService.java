@@ -1,5 +1,6 @@
 package cn.tedu.web.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +8,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import cn.tedu.common.service.HttpClientService;
+import cn.tedu.common.service.RedisClusterService;
 import cn.tedu.common.util.ObjectUtil;
 import cn.tedu.web.pojo.Task;
 import cn.tedu.web.pojo.User;
@@ -18,8 +23,12 @@ import cn.tedu.web.pojo.User;
 public class TaskService {
 	@Autowired
 	HttpClientService client;
-
-	public String submitTask(Task task) {
+	@Autowired
+	private RedisClusterService redisClusterService;
+	
+	
+	public String submitTask(Task task) throws Exception {
+		
 		String url = "http://task.oa.com/task/sendTask";
 		try {
 			String json = ObjectUtil.mapper.writeValueAsString(task);
@@ -31,16 +40,19 @@ public class TaskService {
 		return "任务发布失败";
 	}
 
-	public List<Task> showTasks(String userId, String _status) {
-
+	public List<Task> showTasks(String userId, String _status) {	
+		
+		
 		String url = "http://task.oa.com/task/showTasks/"+userId+"/"+_status;
 		List<Task> list = null;
+		List<String> list_username = new ArrayList<String>();
 		try {
 			String json = client.doGet(url);
 			JsonNode data = ObjectUtil.mapper.readTree(json);
 			list = ObjectUtil.mapper.readValue(data.traverse(),
 					ObjectUtil.mapper.getTypeFactory().constructCollectionType(List.class,Task.class));
-
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,8 +85,8 @@ public class TaskService {
 		}
 	}
 
-	public String receiveTask(String taskId) {
-		String url = "http://task.oa.com/task/receiveTask/"+taskId;
+	public String receiveTask(String taskId, String userId) {
+		String url = "http://task.oa.com/task/receiveTask/"+taskId+"/"+userId;
 		String flag;
 		try {
 			flag = client.doGet(url);
@@ -88,8 +100,8 @@ public class TaskService {
 		return "抱歉，您的任务接收失败";
 	}
 
-	public String deleteTask(String taskId) {
-		String url = "http://task.oa.com/task/deleteTask/"+taskId;
+	public String deleteTask(String taskId,String userId) {
+		String url = "http://task.oa.com/task/deleteTask/"+taskId+"/"+userId;
 		try {
 			String flag = client.doGet(url);
 			if("1".equals(flag)){
@@ -103,8 +115,8 @@ public class TaskService {
 		}
 	}
 
-	public String completeTask(String taskId) {
-		String url = "http://task.oa.com/task/submitTask/"+taskId;
+	public String completeTask(String taskId, String userId) {
+		String url = "http://task.oa.com/task/submitTask/"+taskId+"/"+userId;
 		try {
 			String msg = client.doGet(url);
 			if("1".equals(msg)){
@@ -116,8 +128,8 @@ public class TaskService {
 		return "抱歉，您的任务提交失败";
 	}
 
-	public String refuseTask(String taskId) {
-		String url = "http://task.oa.com/task/refuseTask/"+taskId;
+	public String refuseTask(String taskId, String userId) {
+		String url = "http://task.oa.com/task/refuseTask/"+taskId+"/"+userId;
 		try {
 			String flag = client.doGet(url);
 			if("1".equals(flag)){
@@ -131,6 +143,7 @@ public class TaskService {
 	}
 
 	public List<User> getUsers(String userId) throws Exception {
+		
 		String url = "http://task.oa.com/user/getUsers/"+userId;
 		String json = client.doGet(url);
 		if(!StringUtils.isNotEmpty(json)){
@@ -141,6 +154,18 @@ public class TaskService {
 				ObjectUtil.mapper.getTypeFactory().constructCollectionType(List.class,User.class));
 		return list;
 	}
+
+	public List<Task> searchTask(String search) throws Exception {
+		String url = "http://task.oa.com/task/searchTask/"+search;
+		String json = client.doGet(url);
+		if(json==null)
+			return new ArrayList();
+		JsonNode data = ObjectUtil.mapper.readTree(json);
+		List<Task> list = ObjectUtil.mapper.readValue(data.traverse(),ObjectUtil.mapper.getTypeFactory().constructCollectionType(List.class,Task.class));
+		return list;
+	}
+
+
 
 
 

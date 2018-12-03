@@ -39,7 +39,7 @@
 
 </head>
 <body>
-	<div id="container" style="min-width: 200px; height: 650px"></div>
+	<div id="container" style="min-width: 200px; height: 400px"></div>
 	<div class="message"></div>
 	<div align="center">
 		<!-- 按钮触发模态框 -->

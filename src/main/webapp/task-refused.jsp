@@ -42,8 +42,8 @@
 						<td style="color:red">${taskItem.taskId }</td>
 						<td style="color:red"><small>${taskItem.taskContent}</small></td>
 						<td style="color:red">${taskItem.taskCreateTime }</td>
-						<td style="color:red">${taskItem.taskFinishTime }</td>
-						<td style="color:red">${taskItem.taskGetId }</td>
+						<td style="color:red">${taskItem.taskEndTime }</td>
+						<td style="color:red">${taskItem.user.userName }</td>
 						
 					</tr>
 				</c:forEach>

@@ -47,8 +47,8 @@
 						<td>${taskItem.taskId }</td>
 						<td><small>${taskItem.taskContent}</small></td>
 						<td>${taskItem.taskCreateTime }</td>
-						<td>${taskItem.taskFinishTime }</td>
-						<td>${taskItem.taskGetId }</td>
+						<td>${taskItem.taskEndTime }</td>
+						<td>${taskItem.user.userName}</td>
 						<td><a href="/task/submitTask/${taskItem.taskId}" 
 						class="am-btn am-btn-default am-btn-xs am-text-secondary">提交</a></td>
 					</tr>

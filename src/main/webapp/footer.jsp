@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin user Examples</title>
+<title>顶点oa管理</title>
 <meta name="description" content="这是一个 user 页面">
 <meta name="keywords" content="user">
 <meta name="viewport"
@@ -21,7 +21,7 @@
 <body style="text-align: center;">
 	<footer class="am-topbar admin-header">
 		<hr>
-		<p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under
+		<p class="am-padding-left">© 2018 AllMobilize, Inc. Licensed under
 			MIT license.</p>
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>

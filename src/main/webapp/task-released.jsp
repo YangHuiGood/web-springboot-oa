@@ -47,29 +47,25 @@
           </thead>
           <tbody>
           <c:forEach items="${taskList}"  var="taskItem" >
-          			<form name="task" action="${pageContext.request.contextPath }/task/sendTask" method="get">
 					<tr>
-						
-						
 						<td>${taskItem.taskId }</td>
 						<td><small>${taskItem.taskContent}</small></td>
 						<td>${taskItem.taskCreateTime }</td>
 						<td>${taskItem.taskFinishTime }</td>
-						<td>${taskItem.taskGetId }</td>
+						<td>${taskItem.user.userName }</td>
 						<c:if test="${taskItem.taskStatus ==2}"><td>未接受</td></c:if>
 						<c:if test="${taskItem.taskStatus ==3}"><td style="color:red">已拒绝</td></c:if>
 						<c:if test="${taskItem.taskStatus !=2}">
 						<c:if test="${taskItem.taskStatus !=3}">
 								<td style="color:lightgreen">已接受</td></c:if></c:if>
 								
-						<td><a href="/task-update.jsp?taskId=${taskItem.taskId}&
+						<td><a href="/task/changeTask?taskId=${taskItem.taskId}&
 						taskContent=${taskItem.taskContent}&taskStatus=${taskItem.taskStatus}&
 						taskEndTime=${taskItem.taskEndTime}"  
 						class="am-btn am-btn-default am-btn-xs am-text-secondary">修改</a>
 						<a href="javascript:if(confirm('你确定要删除该任务吗？')) location='/task/deleteTask/${taskItem.taskId }/${taskItem.taskStatus }'" class="am-btn am-btn-default am-btn-xs am-text-danger">删除</a></td>
 						
 					</tr>
-					</form>
 				</c:forEach>
             <!-- <tr>
               <td>1</td>

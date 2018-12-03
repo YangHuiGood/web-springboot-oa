@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze后台管理系统模板HTML表单页面 - cssmoban</title>
+  <title>顶点oa管理</title>
   <meta name="description" content="这是一个form页面">
   <meta name="keywords" content="form">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

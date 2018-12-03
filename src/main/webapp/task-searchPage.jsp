@@ -25,7 +25,7 @@
 
 		<div class="am-cf am-padding">
 			<div class="am-fl am-cf">
-				<strong class="am-text-xs">已完成的任务
+				<strong class="am-text-xs">搜索到的任务
 			</div>
 		</div>
 		<div class="am-g">
@@ -38,6 +38,7 @@
 								<th class="table-title">任务内容</th>
 								<th class="table-date">发布时间</th>
 								<th class="table-date">提交时间</th>
+								<th class="table-date">截止时间</th>
 								<th class="table-author">负责人</th>
 							</tr>
 						</thead>
@@ -48,13 +49,14 @@
 						<td><small>${taskItem.taskContent}</small></td>
 						<td>${taskItem.taskCreateTime }</td>
 						<td>${taskItem.taskFinishTime }</td>
+						<td>${taskItem.taskEndTime }</td>
 						<td>${taskItem.user.userName }</td>
 					</tr>
 				</c:forEach>
 					</tbody>
 					</table>
 					<div class="am-cf">
-						共 ${taskTotal }条记录
+						
 						<div class="am-fr">
 							<ul class="am-pagination">
 								<li class="am-disabled"><a href="#">«</a></li>

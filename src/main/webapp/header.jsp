@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin user Examples</title>
+  <title>顶点oa管理</title>
   <meta name="description" content="这是一个 user 页面">
   <meta name="keywords" content="user">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -30,7 +30,7 @@
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
       <li class="am-dropdown" data-am-dropdown>
         <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 管理员 </a>
+          <span class="am-icon-users"></span> ${sessionScope.user.userName } </a>
       </li>
     </ul>
   </div>

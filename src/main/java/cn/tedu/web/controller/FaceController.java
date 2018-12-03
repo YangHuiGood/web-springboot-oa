@@ -38,7 +38,7 @@ public class FaceController {
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		String path = req.getServletContext().getRealPath("/upload");
-		String regist = faceService.savePic(image, path, user.getUserName());
+		String regist = faceService.savePic(image, path, user.getUserId());
 		System.out.println(regist);
 		String[] split = regist.split(",");
 		String token = split[1].substring(1, split[1].length() - 1);
